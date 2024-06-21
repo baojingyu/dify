@@ -374,6 +374,9 @@ services:
     # uncomment to expose dify-web port to host
     # ports:
     #   - "3000:3000"
+    networks:
+      - ssrf_proxy_network
+      - default
 
   # The postgres database.
   db:
@@ -397,6 +400,9 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+    networks:
+      - ssrf_proxy_network
+      - default
 
   # The redis cache.
   redis:
@@ -412,6 +418,9 @@ services:
     # uncomment to expose redis port to host
     # ports:
     #   - "6379:6379"
+    networks:
+      - ssrf_proxy_network
+      - default
 
 #  # The Weaviate vector store.
 #  weaviate:
@@ -456,6 +465,7 @@ services:
       - ./volumes/sandbox/dependencies:/dependencies
     networks:
       - ssrf_proxy_network
+      - default
 
   # ssrf_proxy server
   # for more information, please refer to
@@ -563,8 +573,13 @@ services:
     ports:
       - "80:80"
       #- "443:443"
+    networks:
+      - ssrf_proxy_network
+      - default
+
 networks:
-  # create a network between sandbox, api and ssrf_proxy, and can not access outside.
   ssrf_proxy_network:
     driver: bridge
     internal: true
+  default:
+    driver: bridge
