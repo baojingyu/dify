@@ -208,7 +208,7 @@
 # Set the value of this setting to true to enable UI Metric collections
 # usageCollection.uiMetric.enabled: false
 
-opensearch.hosts: [https://localhost:9200]
+opensearch.hosts: [https://opensearch:9200]
 opensearch.ssl.verificationMode: none
 opensearch.username: admin
 opensearch.password: 'Qazwsxedc!@#123'
