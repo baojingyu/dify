@@ -150,7 +150,8 @@ docker/volumes/etcd/*
 docker/volumes/minio/*
 docker/volumes/milvus/*
 docker/volumes/chroma/*
-
+docker/volumes/xinference/models/*
+docker/volumes/xinference/xinference
 sdks/python-client/build
 sdks/python-client/dist
 sdks/python-client/dify_client.egg-info
